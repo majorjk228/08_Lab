@@ -20,7 +20,7 @@ void Dialog::GetEvent(TEvent& event)
 	string s;
 	string param;
 	char code;
-	cout << "type a command: ";
+	cout << "Введите команду: ";
 	cin >> s; code = s[0];									//первый символ команды
 	if (OpInt.find(code) >= 0)								//является ли символ кодом операции
 	{
