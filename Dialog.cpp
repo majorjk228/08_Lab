@@ -1,4 +1,8 @@
 #include "Dialog.h"
+#include "Person.h"
+#include "Event.h"
+#include <string>
+#include <iostream> 
 
 //конструктор
 Dialog::Dialog(void) : Vector()
@@ -16,7 +20,7 @@ void Dialog::GetEvent(TEvent& event)
 	string s;
 	string param;
 	char code;
-	cout << '>';
+	cout << "type a command: ";
 	cin >> s; code = s[0];									//первый символ команды
 	if (OpInt.find(code) >= 0)								//является ли символ кодом операции
 	{
@@ -74,8 +78,9 @@ void Dialog::HandleEvent(TEvent& event)
 		{
 		default:Vector::HandleEvent(event);
 		case cmMake:							   //создание группы
-			size = event.a;						   //размер группы
-			beg = new Object * [size];			   //выделяем память под массив указателей
+			cout << "Введите размер группы: " << endl;
+			cin >> size;
+			beg = new Object * [size];			   //выделяем память под массив указателей			
 			cur = 0;							   //текущая позиция
 			ClearEvent(event);					   //очищаем событие
 			break;
